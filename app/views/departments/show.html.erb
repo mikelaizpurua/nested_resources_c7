@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @department.name %>
+</p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @department.organization.name %>
+</p>
+
+<h2>Positions</h2>
+<ul>
+  <% @department.positions.each do |pos| %>
+    <li><%= link_to pos.name, pos %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'New Position', new_department_position_path(@department) %>
+<%= link_to 'Edit', edit_department_path(@department) %> |
+<%# "back" is "up the hierarchy" not "back to the index" %>
+<%= link_to 'Back', @department.organization %>
